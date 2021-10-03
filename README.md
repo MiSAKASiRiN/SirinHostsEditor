@@ -1,0 +1,2 @@
+# SirinHostsEditor
+查询某域名所指向的IP并写入hosts或特定文件中
