@@ -68,10 +68,11 @@ if os.geteuid() != 0:
     print("[!] Aborting. (No Permission)")
     sys.exit(2)
 
-args = sys.argv[]
 if len(args) == 0:
     print('[!] Aborting. (Bad Args)')
     sys.exit(15)
+
+site = sys.argv[1]
 
 print('[*] Getting Page: ' + input + ' --> ' + site)
 site = 'https://' + site
