@@ -68,7 +68,7 @@ if os.geteuid() != 0:
     print("[!] Aborting. (No Permission)")
     sys.exit(2)
 
-if len(args) == 0:
+if len(sys.argv) == 0:
     print('[!] Aborting. (Bad Args)')
     sys.exit(15)
 
