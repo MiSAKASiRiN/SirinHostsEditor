@@ -1,4 +1,6 @@
-#####Sirin Hosts Autoreditor by MisakaSirin#####
+#-*- coding:utf-8 -*-
+#####Sirin Domain Address Searcher by MisakaSirin#####
+#WARN:该文件内容已经作废，仅作为早期开发与测试文件，可删除
 
 import urllib.request
 import urllib.error
@@ -17,9 +19,9 @@ l = []
 usage = '''
 Sirin Domain Address Searcher ver 1.0.2 Build4F3CE2D Developed by MisakaSirin
 Usage: srndas <Target Domain Name>/[-h]/[-b]/[-r] [-w [FILENAME]]/[-e]/[-l]
-    Target Domain Name: The domain name that you want to search
+    Target Domain Name: The domain name that you want to search(this shoud be the first arg)
     -h --help:          Show this page
-    -b --backup:        Make a backup file for /etc/hosts
+    -b --backup:        Make a backup file for /etc/hosts before other progress
     -r --restore        Restore /etc/hosts from a file (Normally ~/.SirinDAS)
     -w --write          Write result to a certain file (Normally /etc/hosts, this operation requires root permission)
     -l --load           Force system to load /etc/hosts when the previous progress is done
@@ -69,10 +71,10 @@ if os.geteuid() != 0:
     sys.exit(2)
 
 if len(sys.argv) == 0:
-    print('[!] Aborting. (Bad Args)')
+    print('[!] Aborting. (No Args)')
     sys.exit(15)
 
-site = sys.argv[1]
+input = sys.argv[1]
 
 print('[*] Getting Page: ' + input + ' --> ' + site)
 site = 'https://' + site

@@ -1,24 +1,59 @@
-# SirinHostsEditor
-在ipaddress.com中查询某域名所指向的IP并写入hosts或特定文件中，用于快捷解决github DNS污染等问题  
-
-# UPDATE LOG 2.0.0  2021-10-4
-[+]新增开关功能，提供以下选项，详细帮助见下  
+# Sirin Domain Address Searcher
+在ipaddress.com中查询某域名所指向的IP并写入hosts或特定文件中，用于快捷解决github DNS污染等问题 
+```
 srndas <Target Domain Name>/[-h]/[-b]/[-r] [-w [FILENAME]]/[-e]/[-l]  
-    -h --help       显示帮助  
-    -b --backup     备份当前/etc/hosts文件  
-    -r --restore    使用备份文件还原/etc/hosts（默认于~/.sirin/bkup/srndas/）  
-    -w --write      将结果写入指定文件中（默认写入到/etc/hosts，该操作需要root权限）  
-    -l --load       其他操作完成后强制系统重新加载/etc/hosts文件
+```
+    -h  --help              显示帮助  
+    -b  --backup            在进行下一步操作前备份当前/etc/hosts文件（~/.sirin/bkup/srndas/）
+    -r  --restore           使用备份文件还原/etc/hosts（~/.sirin/bkup/srndas/）  
+    -w  --write             将结果写入指定文件中 
+    -wh --writetohosts      将结果进行选择并写入/etc/hosts文件中
+    -l  --load              其他操作完成后强制系统重新加载/etc/hosts文件
 
 [^]Backup备份/Restore还原  
     将当前/etc/hosts内容备份至~/.sirin/bkup/srndas/目录下  
     可使用-r或--restore开关来进行还原  
   
 [^]Write写入  
-    将查询结果写入至指定文件中，若留空则写入/etc/hosts中（需要root权限），此时若有多个结果则需要进行选择  
+    将查询结果写入至指定文件中  
+
+ [^]Hosts文件
+   将结果写入/etc/hosts中（需要root权限），此时若有多个结果则需要进行选择  
   
 [^]Load  
-    >计划于2.0.1版本完成<  
+    >计划于2.1.0版本完成<   
+
+# UPDATE LOG 2.0.2  2021-10-7
+[+]爬虫增加进度显示
+[~]爬虫页面获取策略改变
+
+# UPDATE LOG 2.0.1  2021-10-5  
+[~]ipaddress.com策略更新(Pattern e3)  
+
+# UPDATE LOG 2.0.0  2021-10-4
+[+]新增开关功能，提供以下选项，详细帮助见下  
+```
+srndas <Target Domain Name>/[-h]/[-b]/[-r] [-w [FILENAME]]/[-e]/[-l]  
+```
+    -h  --help              显示帮助  
+    -b  --backup            在进行下一步操作前备份当前/etc/hosts文件（~/.sirin/bkup/srndas/）
+    -r  --restore           使用备份文件还原/etc/hosts（~/.sirin/bkup/srndas/）  
+    -w  --write             将结果写入指定文件中 
+    -t  --tohosts           将结果进行选择并写入/etc/hosts文件中
+    -l  --load              其他操作完成后强制系统重新加载/etc/hosts文件
+
+[^]Backup备份/Restore还原  
+    将当前/etc/hosts内容备份至~/.sirin/bkup/srndas/目录下  
+    可使用-r或--restore开关来进行还原  
+  
+[^]Write写入  
+    将查询结果写入至指定文件中  
+
+ [^]Hosts文件
+   将结果写入/etc/hosts中（需要root权限），此时若有多个结果则需要进行选择  
+  
+[^]Load  
+    >计划于2.1.0版本完成<  
   
 [~]将参数调用由sys.argv改为getopt模块  
   
@@ -26,7 +61,7 @@ srndas <Target Domain Name>/[-h]/[-b]/[-r] [-w [FILENAME]]/[-e]/[-l]
 [~]解析库更新为lxml  
   
 # UPDATE LOG 1.1.1  2021-8-20  
-[~]ipaddress.com策略更新  
+[~]ipaddress.com策略更新(Pattern e2)  
   
 # UPDATE LOG 1.1.0  2021-8-5  
 [~]爬虫内核由BeautifulSoup3更新至BeautifulSoup4  
