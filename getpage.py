@@ -3,6 +3,7 @@
 #####Sirin Domain Address Searcher by MisakaSirin PAGEGET#####
 #Pattern e3
 
+from http.client import INSUFFICIENT_STORAGE
 import sys
 #import urllib.request 
 import urllib.error
@@ -21,7 +22,12 @@ def Schedule(a,b,c):
       per = 100
    print('%.2f%%' % per)
 
-target = str(sys.argv[1])
+try:
+    target = str(sys.argv[1])
+except IndexError:
+    print('No args')
+    sys.exit(10)
+
 dir = os.path.abspath('.')  
 work_path = os.path.join(dir,'temp.srntp')
 
